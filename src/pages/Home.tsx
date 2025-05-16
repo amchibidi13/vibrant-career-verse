@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ProjectCard, Project } from "@/components/ProjectCard";
 import { ArticleCard, Article } from "@/components/ArticleCard";
 import { ArrowDown } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 // Sample data - would come from a database in a real app
 const featuredProjects: Project[] = [
@@ -66,9 +67,9 @@ const featuredArticles: Article[] = [
 
 export default function Home() {
   return (
-    <div className="animate-fade-in">
+    <div>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
+      <AnimatedSection animation="fade-in" className="relative h-screen flex items-center">
         <div className="container px-6 max-w-7xl mx-auto">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -92,10 +93,10 @@ export default function Home() {
             <ArrowDown className="h-6 w-6" />
           </Button>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* About Section */}
-      <section className="py-20">
+      <AnimatedSection animation="slide-up" className="py-20">
         <div className="container px-6 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -142,18 +143,20 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Recent Projects Section */}
-      <section className="py-20 bg-secondary/50">
+      <AnimatedSection animation="slide-up" delay={200} className="py-20 bg-secondary/50">
         <div className="container px-6 max-w-7xl mx-auto">
           <SectionHeading 
             title="Recent Projects" 
             subtitle="Explore some of my recent data science and analytics projects."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {featuredProjects.map((project, index) => (
+              <AnimatedSection key={project.id} animation="fade-in" delay={300 + index * 100}>
+                <ProjectCard project={project} />
+              </AnimatedSection>
             ))}
           </div>
           <div className="mt-12 text-center">
@@ -162,18 +165,20 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Recent Articles Section */}
-      <section className="py-20">
+      <AnimatedSection animation="slide-up" delay={400} className="py-20">
         <div className="container px-6 max-w-7xl mx-auto">
           <SectionHeading 
             title="Recent Articles" 
             subtitle="Dive into my latest articles on data science, analytics, and visualization."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
+            {featuredArticles.map((article, index) => (
+              <AnimatedSection key={article.id} animation="fade-in" delay={500 + index * 100}>
+                <ArticleCard article={article} />
+              </AnimatedSection>
             ))}
           </div>
           <div className="mt-12 text-center">
@@ -182,10 +187,10 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent text-accent-foreground">
+      <AnimatedSection animation="fade-in" delay={600} className="py-20 bg-accent text-accent-foreground">
         <div className="container px-6 max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Work Together</h2>
@@ -197,7 +202,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 }
