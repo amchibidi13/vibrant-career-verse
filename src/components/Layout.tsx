@@ -1,17 +1,18 @@
 
-import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { AdminNav } from "./AdminNav";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
+      <AdminNav />
       <Navbar />
-      <main className="flex-grow pt-20">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );

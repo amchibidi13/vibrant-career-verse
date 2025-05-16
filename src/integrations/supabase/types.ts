@@ -9,13 +9,154 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      about: {
+        Row: {
+          bio: string
+          created_at: string | null
+          education: string[] | null
+          experience: string[] | null
+          id: string
+          resume_url: string | null
+          skills: string[] | null
+          updated_at: string | null
+        }
+        Insert: {
+          bio: string
+          created_at?: string | null
+          education?: string[] | null
+          experience?: string[] | null
+          id?: string
+          resume_url?: string | null
+          skills?: string[] | null
+          updated_at?: string | null
+        }
+        Update: {
+          bio?: string
+          created_at?: string | null
+          education?: string[] | null
+          experience?: string[] | null
+          id?: string
+          resume_url?: string | null
+          skills?: string[] | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      admin_users: {
+        Row: {
+          created_at: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      articles: {
+        Row: {
+          content: string
+          created_at: string | null
+          date: string
+          display_order: number
+          id: string
+          image: string
+          summary: string
+          tags: string[]
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          date: string
+          display_order?: number
+          id?: string
+          image: string
+          summary: string
+          tags: string[]
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          date?: string
+          display_order?: number
+          id?: string
+          image?: string
+          summary?: string
+          tags?: string[]
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          created_at: string | null
+          date: string
+          demo: string | null
+          description: string
+          display_order: number
+          full_description: string
+          github: string | null
+          id: string
+          image: string
+          images: string[] | null
+          tags: string[]
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          date: string
+          demo?: string | null
+          description: string
+          display_order?: number
+          full_description: string
+          github?: string | null
+          id?: string
+          image: string
+          images?: string[] | null
+          tags: string[]
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          date?: string
+          demo?: string | null
+          description?: string
+          display_order?: number
+          full_description?: string
+          github?: string | null
+          id?: string
+          image?: string
+          images?: string[] | null
+          tags?: string[]
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      seed_sample_data: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
