@@ -13,7 +13,7 @@ export default function Home() {
   const { data: articles, isLoading: articlesLoading } = useArticles();
   const { data: aboutInfo, isLoading: aboutLoading } = useAboutInfo();
   
-  // Display at most 3 featured projects and articles
+  // Display at most 3 projects and articles
   const featuredProjects = projects?.slice(0, 3) || [];
   const featuredArticles = articles?.slice(0, 3) || [];
 
